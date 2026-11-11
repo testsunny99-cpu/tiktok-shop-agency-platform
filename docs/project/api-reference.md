@@ -41,6 +41,39 @@ tts_open_toolkit skill add --agent codex
 - API 基础域名：`https://open-api.tiktokglobalshop.com`
 - Token 域名：`https://auth.tiktok-shops.com`
 
+## OAuth 回调地址与 `state`
+
+后台的 Redirect URL 是 OAuth 授权完成后的回调入口，不是 Webhook 地址。它必须
+指向本项目实际控制的 HTTPS 服务，并与后台配置逐字符一致。例如：
+
+```text
+https://api.example.com/tiktok/oauth/callback
+```
+
+`https://tts-callback.shop-oauth.workers.dev/callback` 使用的是 Cloudflare
+`workers.dev` 公共子域；当前没有证据表明它属于本项目，因此应视为外部测试或第三方
+服务，不能用于正式授权。若要使用 Cloudflare Worker，必须部署在自己的 Cloudflare
+账户下，并确认回调代码、日志和数据存储由本项目控制。
+
+发起授权时由服务端生成不可预测且短期有效的 `state`，绑定到当前会话和账号，拼接
+到授权 URL；回调时校验 `state` 后再使用 `code` 换取 Token。示意：
+
+```text
+https://shop.tiktok.com/alliance/creator/auth?app_key=${TTS_APP_KEY}&state=${STATE}
+```
+
+Seller 授权使用 Seller 入口，Creator 授权使用 Creator 入口；两者的授权上下文、
+scope 和 Token 必须分开保存。修改 Redirect URL 后必须点击后台的 **Publish changes**。
+
+`Manage Webhook` 配置的是订单、商品等事件通知，和 OAuth `/callback` 是两个不同的
+接口，不能混用。
+
+## 凭证安全
+
+App Secret、授权码、Token 和 webhook 签名密钥只允许进入本地运行时配置或密钥管理
+系统，不得写入 README、日志、截图或 Git。若凭证曾经出现在共享文件、聊天或截图中，
+应立即在后台轮换并更新本地配置。
+
 ## 关键约束
 
 - 发布带商品视频要求创作者授权上下文和 `creator.video.write` scope。

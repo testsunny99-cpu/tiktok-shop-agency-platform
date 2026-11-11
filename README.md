@@ -28,6 +28,25 @@
 - [API 与授权资料](docs/project/api-reference.md)
 - [AI 交接记录](AI_PROJECT_HANDOFF.md)
 
+## OAuth 回调配置（重要）
+
+TikTok Shop 后台的 **Redirect URL** 必须填写由本项目控制的 HTTPS 地址，例如：
+
+```text
+https://api.example.com/tiktok/oauth/callback
+```
+
+截图中出现的 `https://tts-callback.shop-oauth.workers.dev/callback` 是一个外部
+Cloudflare `workers.dev` 子域，不属于本项目或本账号。除非已经确认该 Worker 的
+所有者、代码和数据处理方式，否则不要把授权码或店铺授权交给它；应替换为自有
+服务器或自有 Cloudflare Worker 的回调地址，并点击 **Publish changes**。
+
+授权链接中的 `state` 由本项目在发起授权时随机生成并短期保存，回调时必须比较
+返回值，匹配后才能用 `code` 换取 Token。`state` 不能固定写死，也不能只依赖
+后台复制的授权链接模板。Creator 与 Seller 使用各自的授权入口和独立 Token。
+
+回调地址和授权流程的操作清单见 [`docs/project/api-reference.md`](docs/project/api-reference.md)。
+
 ## 当前状态
 
 处于 discovery。当前只完成文档初始化，尚无可运行服务或生产集成。所有运行命令和测试矩阵标记为 TBD，待技术选型和接口验证后补齐。
