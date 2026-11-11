@@ -1,0 +1,31 @@
+version: 1
+project: tiktokshop-agency-multi-account
+stage: discovery
+timezone: Europe/London
+daily_checkpoint:
+  enabled: true
+  cutoff: "00:00"
+  minimum: one-meaningful-local-commit
+push_policy: manual
+required_docs:
+  - AGENTS.md
+  - README.md
+  - docs/project/overview.md
+  - docs/project/architecture.md
+  - docs/project/decisions.md
+  - docs/project/milestones.md
+  - docs/project/intake.md
+  - CHANGELOG.md
+  - AI_PROJECT_HANDOFF.md
+milestone_update_required: true
+ai_handoff_required: true
+production_change_requires_confirmation: true
+notifications:
+  enabled: false
+  provider: feishu-webhook
+  events:
+    - milestone_completed
+    - important_conclusion
+    - blocker_or_risk_change
+    - delivery_ready
+  quiet_on_unchanged: true

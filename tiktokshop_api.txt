@@ -1,0 +1,28 @@
+tiktokshop api
+
+
+App key
+[stored in .env.local]
+
+App secret
+[stored in .env.local]
+Created2026-10-22 17:01:16
+
+
+
+Api文档
+https://partner.us.tiktokshop.com/service/gather?service_id=7699245963517724429&from=service_list
+https://partner.tiktokshop.com/docv2/page/678e3a2ac0833b03100a4689
+
+
+webhook的使用方法
+https://partner.tiktokshop.com/docv2/page/650512b42f024f02be19755f
+
+官方AI工具包
+npm install -g @tts-open-toolkit/cli && tts_open_toolkit skill add --agent codex
+
+Creator Authorization link
+https://shop.tiktok.com/alliance/creator/auth?app_key=${TTS_APP_KEY}
+
+Seller Authorization Link
+https://services.tiktokshops.us/open/authorize?service_id=7699245963517724429

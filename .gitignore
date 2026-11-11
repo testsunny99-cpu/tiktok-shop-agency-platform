@@ -1,0 +1,13 @@
+# Local secrets and runtime state
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# Runtime/build output
+node_modules/
+dist/
+build/
+coverage/
+.cache/
+.DS_Store
