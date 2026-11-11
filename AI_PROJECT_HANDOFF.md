@@ -43,3 +43,9 @@ Run an API-only discovery spike with two test creator accounts: complete OAuth s
 - No mature open-source project was found that covers the full target: agency multi-account management, separate Creator/Seller authorization, shoppable-video upload/precheck/post, batch orchestration and audit.
 - Best reuse candidates are SDK/reference layers (`EcomPHP/tiktokshop-php`, `SKIT.FlurlHttpClient.ByteDance`), multi-shop/task safety patterns (`Buer2333/tiktok-shop-mcp`, `codustry/marketeer`) and official-doc mirroring (`dmiller1006/tiktok-shop-docs-skill`).
 - Browser automation (`yancyuu/tk-creator-binder`) is only a low-level operations reference and must not replace the official API path.
+
+## Open-source report update and publication (2026-11-11)
+
+- Expanded `docs/project/open-source-landscape.md` into a structured local report with table of contents, evaluation criteria, official capability boundaries, reuse/self-build boundaries, risk checklist and references.
+- Local checkpoint: `2478026 docs: refine open source landscape report`.
+- Created and published the public GitHub repository: https://github.com/testsunny99-cpu/tiktok-shop-agency-platform
