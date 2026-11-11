@@ -26,6 +26,8 @@
 - [关键决策](docs/project/decisions.md)
 - [里程碑](docs/project/milestones.md)
 - [API 与授权资料](docs/project/api-reference.md)
+- [开源项目调查报告](docs/project/open-source-landscape.md)
+- [许可证](LICENSE)
 - [AI 交接记录](AI_PROJECT_HANDOFF.md)
 
 ## OAuth 回调配置（重要）

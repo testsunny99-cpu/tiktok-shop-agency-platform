@@ -14,3 +14,5 @@
 - Added `docs/project/open-source-landscape.md` with a public GitHub and official Partner Center landscape survey, reuse recommendations, and gaps against the Creator Affiliate video workflow.
 
 - Expanded the open-source landscape report into a structured long-term reference document and published the repository publicly on GitHub.
+
+- Added an MIT license and linked the open-source landscape report from the README.
